@@ -1,15 +1,11 @@
 n = int(input())
-code = int(input())
+code = input()
 numbers = [0] * n
 cnt = 0
 for i in range(n):
     numbers[i] = input()
-    key = str(code // 10 ** (n - (i+1)))
-    # print(key)
-    code %= 10 ** (n - (i+1))
-    # print("key is ",key)
-    if numbers[i].index(key) > (len(numbers[i]) // 2):
-        cnt += len(numbers[i]) - numbers[i].index(key)
+    if numbers[i].index(code[(n-1) - i]) > (len(numbers[i]) // 2):
+        cnt += len(numbers[i]) - numbers[i].index(code[(n-1) - i])
     else:    
-        cnt += numbers[i].index(key)
+        cnt += numbers[i].index(code[(n-1) - i])
 print(cnt)
